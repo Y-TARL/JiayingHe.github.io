@@ -40,15 +40,34 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
       
+      - name: Setup Hugo modules
+        run: |
+          echo "Initializing Hugo modules..."
+          hugo mod tidy
+          echo "Hugo modules initialized"
+      
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
+          echo "Hugo version:"
+          hugo version
+          echo "Current directory:"
+          pwd
+          echo "Directory contents:"
+          ls -la
+          echo "Hugo modules status:"
+          hugo mod graph || echo "No modules or module graph failed"
+          echo "Starting Hugo build..."
           hugo \
             --gc \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
+            --baseURL "${{ steps.pages.outputs.base_url }}/" \
+            --logLevel info
+          echo "Build completed successfully"
+          echo "Public directory contents:"
+          ls -la public/
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
