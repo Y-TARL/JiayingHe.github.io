@@ -1,11 +1,12 @@
 ---
-# Leave the homepage title empty to use the site title
+# Leave the homepage title  - block: markd      title      title:       title: � All Research📝 All Publications 🔥 Recent Newswn
+
 title: ''
 date: 2022-10-24
 type: landing
 
 design:
-  # Default section spacing
+  # Default section spacing - 减少整体间距
   spacing: '6rem'
 
 sections:
@@ -13,15 +14,23 @@ sections:
     content:
       # Choose a user profile to display (a folder name within `content/authors/`)
       username: admin
-      text: ''
+      text: |-
+        I am currently a senior undergraduate student at Zhejiang University of Technology, passionate about the intersection of Software Engineering and Large Language Models. I will graduate with my bachelor's degree in 2026 and am excited to pursue PhD studies at Zhejiang University under the supervision of [Prof. Xin Xia](https://xin-xia.github.io/) and [Prof. Xing Hu](https://xing-hu.github.io/), focusing on applying LLM technologies to enhance software development processes and code intelligence.     
+        
+        During my undergraduate studies, I have gained valuable research experience in various AI domains, including medical image processing, knowledge graphs, and vision-language models. I work closely with several amazing researchers, including [Jiahe Chen](https://jiahechen2002.github.io/) (my senior colleague), and I'm always open to new collaborations and connections in the research community!
+
+        😃 I'm always open to new collaborations and connections in the research community! 😊 
       # Show a call-to-action button under your biography? (optional)
-      button:
-        text: Download CV
-        url: uploads/resume.pdf
+      # button:
+      #   text: Download CV
+      #   url: uploads/resume.pdf
       headings:
-        about: ''
-        education: ''
-        interests: ''
+        about: 'About Me'
+        education: 'Education'
+        awards: 'Awards'  
+        skills: 'Skills'
+        languages: 'Languages'
+        interests: 'Research Interests'
     design:
       # Apply a gradient background
       css_class: hbx-bg-gradient
@@ -29,32 +38,25 @@ sections:
       avatar:
         size: medium # Options: small (150px), medium (200px, default), large (320px), xl (400px), xxl (500px)
         shape: circle # Options: circle (default), square, rounded
+      # Custom spacing to reduce gaps
+      spacing:
+        padding: ['20px', '0', '20px', '0']
   - block: markdown
+    id: news
     content:
-      title: '📚 My Research'
-      subtitle: ''
+      title: 🔥 Recent News
       text: |-
-        Use this area to speak to your mission. I'm a research scientist in the Moonshot team at DeepMind. I blog about machine learning, deep learning, and moonshots.
-
-        I apply a range of qualitative and quantitative methods to comprehensively investigate the role of science and technology in the economy.
-
-        Please reach out to collaborate 😃
+        - **2025.07** - One paper is accepted by Bioinformatics.
+        - **2025.03** - One paper is accepted by ICME 2025.
+        - **2024.12** - I was honored to be awarded the National Scholarship.
     design:
-      columns: '1'
+      spacing:
+        padding: ['50px', '0', '30px', '0']
   - block: collection
-    id: papers
+    id: publications
     content:
-      title: Featured Publications
-      filters:
-        folders:
-          - publication
-        featured_only: true
-    design:
-      view: article-grid
-      columns: 2
-  - block: collection
-    content:
-      title: Recent Publications
+      title: 📝 All Publications
+      # text: '*Note: The publications listed below represent my undergraduate research work at ZJUT in various AI domains, which provided valuable research experience before transitioning to my future focus on SE + LLM.*'
       text: ''
       filters:
         folders:
@@ -62,44 +64,21 @@ sections:
         exclude_featured: false
     design:
       view: citation
+      spacing:
+        padding: ['10px', '0', '20px', '0']
   - block: collection
-    id: talks
+    id: papers
     content:
-      title: Recent & Upcoming Talks
+      title: 🔬 All Research
       filters:
         folders:
-          - event
+          - publication
+        featured_only: true
     design:
-      view: card
-  - block: collection
-    id: news
-    content:
-      title: Recent News
-      subtitle: ''
-      text: ''
-      # Page type to display. E.g. post, talk, publication...
-      page_type: post
-      # Choose how many pages you would like to display (0 = all pages)
-      count: 5
-      # Filter on criteria
-      filters:
-        author: ''
-        category: ''
-        tag: ''
-        exclude_featured: false
-        exclude_future: false
-        exclude_past: false
-        publication_type: ''
-      # Choose how many pages you would like to offset by
-      offset: 0
-      # Page order: descending (desc) or ascending (asc) date.
-      order: desc
-    design:
-      # Choose a layout view
-      view: card
-      # Reduce spacing
+      view: article-grid
+      columns: 2
       spacing:
-        padding: [0, 0, 0, 0]
+        padding: ['10px', '0', '10px', '0']
   - block: cta-card
     demo: true # Only display this section in the Hugo Blox Builder demo site
     content:
